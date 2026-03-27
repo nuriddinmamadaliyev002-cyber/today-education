@@ -40,8 +40,8 @@
     border-bottom: 1px solid rgba(204,0,204,0.2);
   }
   .nav-logo { display: flex; align-items: center; gap: 12px; }
-  .nav-logo img { height: 52px; mix-blend-mode: screen; }
-  .nav-logo span { font-family: 'Bebas Neue'; font-size: 22px; letter-spacing: 2px; color: var(--purple-light); }
+  .nav-logo img { height: 60px; mix-blend-mode: screen; }
+  .nav-logo span { font-family: 'Bebas Neue'; font-size: 26px; letter-spacing: 2px; color: var(--purple-light); }
   .nav-links { display: flex; gap: 32px; }
   .nav-links a { color: var(--muted); text-decoration: none; font-size: 15px; letter-spacing: 0.5px; transition: color .2s; }
   .nav-links a:hover { color: var(--purple-light); }
@@ -101,7 +101,7 @@
     animation: fadeUp 0.8s ease both;
   }
   .hero-logo {
-    width: 120px; margin-bottom: 32px;
+    width: 180px; margin-bottom: 32px;
     animation: fadeUp 0.8s 0.1s ease both;
     filter: drop-shadow(0 0 24px var(--purple-glow));
     mix-blend-mode: screen;
@@ -174,25 +174,25 @@
     text-shadow: 0 0 40px var(--purple-glow);
   }
   .stat-label {
-    font-size: 14px; color: var(--muted);
+    font-size: clamp(13px, 1.2vw, 17px); color: var(--muted);
     letter-spacing: 1px; text-transform: uppercase; margin-top: 8px;
   }
 
   /* ── SECTION SHARED ── */
   section { padding: 100px 48px; }
   .section-tag {
-    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    font-size: 13px; letter-spacing: 4px; text-transform: uppercase;
     color: var(--purple); margin-bottom: 16px;
   }
   .section-title {
     font-family: 'Bebas Neue';
-    font-size: clamp(36px, 6vw, 64px);
+    font-size: clamp(42px, 6vw, 80px);
     letter-spacing: 2px; line-height: 1;
     margin-bottom: 24px;
   }
   .section-title span { color: var(--purple-light); }
   .section-body {
-    font-size: 16px; color: var(--muted); line-height: 1.8; max-width: 600px;
+    font-size: clamp(16px, 1.5vw, 20px); color: var(--muted); line-height: 1.8; max-width: 600px;
   }
 
   /* ── ABOUT ── */
@@ -226,7 +226,7 @@
     border: 1px solid rgba(204,0,204,0.2);
     color: var(--text);
     padding: 12px 24px; border-radius: 100px;
-    font-size: 15px; font-weight: 500;
+    font-size: clamp(14px, 1.3vw, 18px); font-weight: 500;
     display: flex; align-items: center; gap: 10px;
     transition: border-color .2s, background .2s, transform .2s;
     cursor: default;
@@ -259,9 +259,9 @@
     transition: transform .3s;
   }
   .program-card:hover::before { transform: scaleX(1); }
-  .program-icon { font-size: 40px; margin-bottom: 20px; }
-  .program-title { font-family: 'Bebas Neue'; font-size: 32px; letter-spacing: 1px; margin-bottom: 12px; }
-  .program-desc { color: var(--muted); font-size: 14px; line-height: 1.7; }
+  .program-icon { font-size: clamp(36px, 3vw, 48px); margin-bottom: 20px; }
+  .program-title { font-family: 'Bebas Neue'; font-size: clamp(28px, 2.5vw, 40px); letter-spacing: 1px; margin-bottom: 12px; }
+  .program-desc { color: var(--muted); font-size: clamp(14px, 1.3vw, 18px); line-height: 1.7; }
 
   /* ── GALLERY ── */
   .gallery-section { background: var(--dark); }
@@ -311,7 +311,7 @@
   .highlight-list { list-style: none; margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
   .highlight-list li {
     display: flex; align-items: flex-start; gap: 16px;
-    font-size: 15px; color: var(--muted); line-height: 1.6;
+    font-size: clamp(14px, 1.3vw, 18px); color: var(--muted); line-height: 1.6;
   }
   .highlight-list li::before {
     content: '→'; color: var(--purple); flex-shrink: 0; margin-top: 2px;
@@ -324,7 +324,7 @@
     padding: 60px 48px;
     text-align: center;
   }
-  footer img { height: 100px; margin-bottom: 20px; filter: drop-shadow(0 0 24px var(--purple-glow)); mix-blend-mode: screen; }
+  footer img { height: 130px; margin-bottom: 20px; filter: drop-shadow(0 0 24px var(--purple-glow)); mix-blend-mode: screen; }
   footer p { color: var(--muted); font-size: 14px; line-height: 1.8; }
   footer .footer-copy { margin-top: 32px; font-size: 12px; color: rgba(255,255,255,0.2); }
   .footer-line {
@@ -384,11 +384,19 @@
 
   /* Desktop */
   @media (min-width: 1201px) {
-    .hero h1 { font-size: 110px; }
-    .hero-sub { font-size: 18px; }
-    .stat-num { font-size: 72px; }
-    .section-title { font-size: 60px; }
-    .nav-links a { font-size: 15px; }
+    .hero h1 { font-size: 130px; }
+    .hero-sub { font-size: 20px; }
+    .hero-since { font-size: 15px; }
+    .stat-num { font-size: 88px; }
+    .stat-label { font-size: 15px; }
+    .section-title { font-size: 72px; }
+    .section-body { font-size: 18px; }
+    .nav-links a { font-size: 16px; }
+    .country-pill { font-size: 17px; padding: 14px 28px; }
+    .country-pill .flag { font-size: 26px; }
+    .program-title { font-size: 38px; }
+    .program-desc { font-size: 16px; }
+    .highlight-list li { font-size: 17px; }
   }
 </style>
 </head>
@@ -560,74 +568,109 @@
 </section>
 
 <!-- EVENTS SECTION -->
-<section id="events" style="background: var(--dark); padding: 100px 48px;">
-  <div style="max-width:1200px; margin:0 auto;">
+<style>
+  .events-section { background: var(--dark); padding: 100px 48px; }
+  .events-inner { max-width: 1200px; margin: 0 auto; }
+
+  .event-card {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: center;
+    margin-top: 64px; padding-bottom: 64px;
+    border-bottom: 1px solid rgba(204,0,204,0.15);
+  }
+  .event-img-wrap { position: relative; }
+  .event-img-wrap img {
+    width: 100%; border-radius: 8px;
+    border: 1px solid rgba(204,0,204,0.25);
+    box-shadow: 0 0 60px rgba(204,0,204,0.1);
+  }
+  .event-img-badge {
+    position: absolute; top: 16px; left: 16px;
+    background: rgba(5,5,5,0.85); backdrop-filter: blur(8px);
+    border: 1px solid rgba(204,0,204,0.4);
+    padding: 10px 16px; border-radius: 4px;
+    font-size: clamp(11px, 1vw, 14px); color: var(--purple-light); letter-spacing: 1px;
+  }
+  .event-tag {
+    display: inline-block;
+    background: var(--purple-dim); border: 1px solid rgba(204,0,204,0.3);
+    color: var(--purple-light);
+    font-size: clamp(11px, 1vw, 13px); letter-spacing: 2px; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 100px; margin-bottom: 20px;
+  }
+  .event-title {
+    font-family: 'Bebas Neue';
+    font-size: clamp(28px, 3vw, 48px);
+    letter-spacing: 1px; margin-bottom: 16px; line-height: 1.1;
+  }
+  .event-body {
+    color: var(--muted);
+    font-size: clamp(15px, 1.4vw, 19px);
+    line-height: 1.85; margin-top: 14px;
+  }
+  .event-body:first-of-type { margin-top: 0; }
+  .event-imgs { display: flex; flex-direction: column; gap: 16px; }
+  .event-imgs img {
+    width: 100%; border-radius: 8px;
+    border: 1px solid rgba(204,0,204,0.25);
+    box-shadow: 0 0 40px rgba(204,0,204,0.08);
+  }
+
+  @media (max-width: 900px) {
+    .events-section { padding: 70px 24px; }
+    .event-card { grid-template-columns: 1fr; gap: 32px; }
+  }
+</style>
+
+<section id="events" class="events-section">
+  <div class="events-inner">
     <p class="section-tag reveal">Xalqaro faoliyat & Hamkorlik</p>
     <h2 class="section-title reveal">Yutuqlar va <span>muhim uchrashuvlar</span></h2>
 
     <!-- Event 1: IT Minister -->
-    <div class="event-card reveal" style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-top:64px; padding-bottom:64px; border-bottom:1px solid rgba(204,0,204,0.15);">
-      <div style="position:relative;">
-        <img src="images/minister_it.jpg" alt="Vazir Sherzod Shermatov bilan uchrashuv"
-          style="width:100%; border-radius:8px; border:1px solid rgba(204,0,204,0.25); box-shadow:0 0 60px rgba(204,0,204,0.1);">
-        <div style="position:absolute; top:16px; left:16px; background:rgba(5,5,5,0.85); backdrop-filter:blur(8px); border:1px solid rgba(204,0,204,0.4); padding:10px 16px; border-radius:4px; font-size:12px; color:var(--purple-light); letter-spacing:1px;">
-          🇺🇿 IT Vazirlik | 2024
-        </div>
+    <div class="event-card reveal">
+      <div class="event-img-wrap">
+        <img src="images/minister_it.jpg" alt="Vazir Sherzod Shermatov bilan uchrashuv">
+        <div class="event-img-badge">🇺🇿 IT Vazirlik | 2024</div>
       </div>
       <div>
-        <div style="display:inline-block; background:var(--purple-dim); border:1px solid rgba(204,0,204,0.3); color:var(--purple-light); font-size:11px; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:100px; margin-bottom:20px;">
-          1 Million Dasturchi loyihasi
-        </div>
-        <h3 style="font-family:'Bebas Neue'; font-size:36px; letter-spacing:1px; margin-bottom:16px; line-height:1.1;">
-          IT vaziri Sherzod Shermatov bilan uchrashuv
-        </h3>
-        <p style="color:var(--muted); font-size:15px; line-height:1.8;">
+        <div class="event-tag">1 Million Dasturchi loyihasi</div>
+        <h3 class="event-title">IT vaziri Sherzod Shermatov bilan uchrashuv</h3>
+        <p class="event-body">
           O'zbekiston Respublikasi Axborot texnologiyalari va kommunikatsiyalarini rivojlantirish vaziri <strong style="color:var(--text);">Sherzod Shermatov</strong> bilan Prezidentimizning <strong style="color:var(--purple-light);">1 million dasturchi</strong> loyihasini rivojlantirishga qaratilgan majlis bo'lib o'tdi.
         </p>
-        <p style="color:var(--muted); font-size:15px; line-height:1.8; margin-top:14px;">
+        <p class="event-body">
           Unda <strong style="color:var(--text);">InnovateIT School Direktori Ubaydullayev Jaloliddin</strong> o'zining sohaga aloqador bo'lgan takliflarini berdi. Andijon viloyatining barcha shahar va tumanlarida <strong style="color:var(--purple-light);">2027 yilga qadar 20 000+ yoshni</strong> IT sohasiga o'qitish va kelajak kasblari bilan ta'minlash maqsad qilib olindi.
         </p>
       </div>
     </div>
 
     <!-- Event 2: Singapore Minister -->
-    <div class="event-card reveal" style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-top:64px; padding-bottom:64px; border-bottom:1px solid rgba(204,0,204,0.15);">
+    <div class="event-card reveal">
       <div>
-        <div style="display:inline-block; background:var(--purple-dim); border:1px solid rgba(204,0,204,0.3); color:var(--purple-light); font-size:11px; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:100px; margin-bottom:20px;">
-          🇸🇬 Singapur | 2023
-        </div>
-        <h3 style="font-family:'Bebas Neue'; font-size:36px; letter-spacing:1px; margin-bottom:16px; line-height:1.1;">
-          Oliy ta'lim vaziri bilan Singapurdagi uchrashuv
-        </h3>
-        <p style="color:var(--muted); font-size:15px; line-height:1.8;">
+        <div class="event-tag">🇸🇬 Singapur | 2023</div>
+        <h3 class="event-title">Oliy ta'lim vaziri bilan Singapurdagi uchrashuv</h3>
+        <p class="event-body">
           Oliy ta'lim, fan va innovatsiyalar vaziri <strong style="color:var(--text);">Ibrohim Abdurahmonov</strong> Singapurda tahsil olayotgan va ilmiy tadqiqot olib borayotgan bir guruh yoshlar bilan uchrashdi.
         </p>
-        <p style="color:var(--muted); font-size:15px; line-height:1.8; margin-top:14px;">
+        <p class="event-body">
           Muloqotda yoshlar o'zlarini qiynayotgan muammolar, erishilgan yutuqlari va takliflarini baham ko'rdi. Jumladan, yoshlarni xorijiy davlatlarga ta'lim olish uchun yuborishda <strong style="color:var(--purple-light);">konsalting xizmatlarini qayta ko'rib chiqish</strong> va vazirlik huzurida ekspert kengashi tuzish takliflari bildirildi.
         </p>
-        <p style="color:var(--muted); font-size:15px; line-height:1.8; margin-top:14px;">
+        <p class="event-body">
           Faol yoshlarning ilmiy va innovatsion faoliyatdagi yutuqlari e'tirof etilib, <strong style="color:var(--text);">4 nafar talabaga Yoshlar akademiyasining a'zolik sertifikati</strong> topshirildi. Ushbu a'zolik startap g'oyalarini va ilmiy loyihalarni rivojlantirish uchun maxsus muhit yaratib beradi.
         </p>
-        <p style="color:var(--muted); font-size:15px; line-height:1.8; margin-top:14px;">
+        <p class="event-body">
           Ushbu uchrashuvda <strong style="color:var(--text);">Jaloliddin Ubaydullayev</strong> ham qatnashib, Xalqaro Foundation diplomasi bo'yicha suhbat qurildi. <strong style="color:var(--purple-light);">Level 3 International Foundation Diploma for Higher Education Studies</strong> dasturi bo'yicha: ushbu diplom asosida Buyuk Britaniya universitetlariga 2-kursdan qabul qilinish imkoniyati muhokama qilindi.
         </p>
       </div>
-      <div style="display:flex; flex-direction:column; gap:16px;">
-        <img src="images/singapore_minister.jpg" alt="Vazir va yoshlar Singapurda"
-          style="width:100%; border-radius:8px; border:1px solid rgba(204,0,204,0.25); box-shadow:0 0 40px rgba(204,0,204,0.08);">
-        <img src="images/singapore_students.jpg" alt="Singapurdagi o'zbek talabalari"
-          style="width:100%; border-radius:8px; border:1px solid rgba(204,0,204,0.25); box-shadow:0 0 40px rgba(204,0,204,0.08);">
+      <div class="event-imgs">
+        <img src="images/singapore_minister.jpg" alt="Vazir va yoshlar Singapurda">
+        <img src="images/singapore_students.jpg" alt="Singapurdagi o'zbek talabalari">
       </div>
     </div>
 
   </div>
 </section>
-
-<style>
-  @media (max-width: 900px) {
-    .event-card { grid-template-columns: 1fr !important; }
-  }
-</style>
 
 <!-- FOOTER -->
 <footer>
