@@ -40,7 +40,7 @@
     border-bottom: 1px solid rgba(204,0,204,0.2);
   }
   .nav-logo { display: flex; align-items: center; gap: 12px; }
-  .nav-logo img { height: 40px; }
+  .nav-logo img { height: 40px; mix-blend-mode: screen; }
   .nav-logo span { font-family: 'Bebas Neue'; font-size: 22px; letter-spacing: 2px; color: var(--purple-light); }
   .nav-links { display: flex; gap: 32px; }
   .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; letter-spacing: 0.5px; transition: color .2s; }
@@ -75,6 +75,7 @@
     width: 120px; margin-bottom: 32px;
     animation: fadeUp 0.8s 0.1s ease both;
     filter: drop-shadow(0 0 24px var(--purple-glow));
+    mix-blend-mode: screen;
   }
   .hero h1 {
     font-family: 'Bebas Neue';
@@ -294,7 +295,7 @@
     padding: 60px 48px;
     text-align: center;
   }
-  footer img { height: 56px; margin-bottom: 20px; filter: drop-shadow(0 0 16px var(--purple-glow)); }
+  footer img { height: 56px; margin-bottom: 20px; filter: drop-shadow(0 0 16px var(--purple-glow)); mix-blend-mode: screen; }
   footer p { color: var(--muted); font-size: 14px; line-height: 1.8; }
   footer .footer-copy { margin-top: 32px; font-size: 12px; color: rgba(255,255,255,0.2); }
   .footer-line {
@@ -346,6 +347,7 @@
     <a href="#countries">Davlatlar</a>
     <a href="#programs">Dasturlar</a>
     <a href="#gallery">Galereya</a>
+    <a href="#events">Faoliyat</a>
   </div>
 </nav>
 
@@ -481,12 +483,81 @@
       <ul class="highlight-list">
         <li>Koreya davlat universiteti va xususiy oliy ta'lim muassasalariga qabul</li>
         <li>Til kurslari, ariza va vizagacha bo'lgan to'liq jarayon bo'yicha qo'llab-quvvatlash</li>
-        <li>Bright Future hamkorligida o'nlab o'quvchi muvaffaqiyatli jo'natildi</li>
         <li>Bakalavr va magistratura dasturlarida o'qish imkoniyati</li>
       </ul>
     </div>
   </div>
 </section>
+
+<!-- EVENTS SECTION -->
+<section id="events" style="background: var(--dark); padding: 100px 48px;">
+  <div style="max-width:1200px; margin:0 auto;">
+    <p class="section-tag reveal">Xalqaro faoliyat & Hamkorlik</p>
+    <h2 class="section-title reveal">Yutuqlar va <span>muhim uchrashuvlar</span></h2>
+
+    <!-- Event 1: IT Minister -->
+    <div class="event-card reveal" style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-top:64px; padding-bottom:64px; border-bottom:1px solid rgba(204,0,204,0.15);">
+      <div style="position:relative;">
+        <img src="images/minister_it.jpg" alt="Vazir Sherzod Shermatov bilan uchrashuv"
+          style="width:100%; border-radius:8px; border:1px solid rgba(204,0,204,0.25); box-shadow:0 0 60px rgba(204,0,204,0.1);">
+        <div style="position:absolute; top:16px; left:16px; background:rgba(5,5,5,0.85); backdrop-filter:blur(8px); border:1px solid rgba(204,0,204,0.4); padding:10px 16px; border-radius:4px; font-size:12px; color:var(--purple-light); letter-spacing:1px;">
+          🇺🇿 IT Vazirlik | 2024
+        </div>
+      </div>
+      <div>
+        <div style="display:inline-block; background:var(--purple-dim); border:1px solid rgba(204,0,204,0.3); color:var(--purple-light); font-size:11px; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:100px; margin-bottom:20px;">
+          1 Million Dasturchi loyihasi
+        </div>
+        <h3 style="font-family:'Bebas Neue'; font-size:36px; letter-spacing:1px; margin-bottom:16px; line-height:1.1;">
+          IT vaziri Sherzod Shermatov bilan uchrashuv
+        </h3>
+        <p style="color:var(--muted); font-size:15px; line-height:1.8;">
+          O'zbekiston Respublikasi Axborot texnologiyalari va kommunikatsiyalarini rivojlantirish vaziri <strong style="color:var(--text);">Sherzod Shermatov</strong> bilan Prezidentimizning <strong style="color:var(--purple-light);">1 million dasturchi</strong> loyihasini rivojlantirishga qaratilgan majlis bo'lib o'tdi.
+        </p>
+        <p style="color:var(--muted); font-size:15px; line-height:1.8; margin-top:14px;">
+          Unda <strong style="color:var(--text);">InnovateIT School Direktori Ubaydullayev Jaloliddin</strong> o'zining sohaga aloqador bo'lgan takliflarini berdi. Andijon viloyatining barcha shahar va tumanlarida <strong style="color:var(--purple-light);">2027 yilga qadar 20 000+ yoshni</strong> IT sohasiga o'qitish va kelajak kasblari bilan ta'minlash maqsad qilib olindi.
+        </p>
+      </div>
+    </div>
+
+    <!-- Event 2: Singapore Minister -->
+    <div class="event-card reveal" style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-top:64px; padding-bottom:64px; border-bottom:1px solid rgba(204,0,204,0.15);">
+      <div>
+        <div style="display:inline-block; background:var(--purple-dim); border:1px solid rgba(204,0,204,0.3); color:var(--purple-light); font-size:11px; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:100px; margin-bottom:20px;">
+          🇸🇬 Singapur | 2023
+        </div>
+        <h3 style="font-family:'Bebas Neue'; font-size:36px; letter-spacing:1px; margin-bottom:16px; line-height:1.1;">
+          Oliy ta'lim vaziri bilan Singapurdagi uchrashuv
+        </h3>
+        <p style="color:var(--muted); font-size:15px; line-height:1.8;">
+          Oliy ta'lim, fan va innovatsiyalar vaziri <strong style="color:var(--text);">Ibrohim Abdurahmonov</strong> Singapurda tahsil olayotgan va ilmiy tadqiqot olib borayotgan bir guruh yoshlar bilan uchrashdi.
+        </p>
+        <p style="color:var(--muted); font-size:15px; line-height:1.8; margin-top:14px;">
+          Muloqotda yoshlar o'zlarini qiynayotgan muammolar, erishilgan yutuqlari va takliflarini baham ko'rdi. Jumladan, yoshlarni xorijiy davlatlarga ta'lim olish uchun yuborishda <strong style="color:var(--purple-light);">konsalting xizmatlarini qayta ko'rib chiqish</strong> va vazirlik huzurida ekspert kengashi tuzish takliflari bildirildi.
+        </p>
+        <p style="color:var(--muted); font-size:15px; line-height:1.8; margin-top:14px;">
+          Faol yoshlarning ilmiy va innovatsion faoliyatdagi yutuqlari e'tirof etilib, <strong style="color:var(--text);">4 nafar talabaga Yoshlar akademiyasining a'zolik sertifikati</strong> topshirildi. Ushbu a'zolik startap g'oyalarini va ilmiy loyihalarni rivojlantirish uchun maxsus muhit yaratib beradi.
+        </p>
+        <p style="color:var(--muted); font-size:15px; line-height:1.8; margin-top:14px;">
+          Ushbu uchrashuvda <strong style="color:var(--text);">Jaloliddin Ubaydullayev</strong> ham qatnashib, Xalqaro Foundation diplomasi bo'yicha suhbat qurildi. <strong style="color:var(--purple-light);">Level 3 International Foundation Diploma for Higher Education Studies</strong> dasturi bo'yicha: ushbu diplom asosida Buyuk Britaniya universitetlariga 2-kursdan qabul qilinish imkoniyati muhokama qilindi.
+        </p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <img src="images/singapore_minister.jpg" alt="Vazir va yoshlar Singapurda"
+          style="width:100%; border-radius:8px; border:1px solid rgba(204,0,204,0.25); box-shadow:0 0 40px rgba(204,0,204,0.08);">
+        <img src="images/singapore_students.jpg" alt="Singapurdagi o'zbek talabalari"
+          style="width:100%; border-radius:8px; border:1px solid rgba(204,0,204,0.25); box-shadow:0 0 40px rgba(204,0,204,0.08);">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @media (max-width: 900px) {
+    .event-card { grid-template-columns: 1fr !important; }
+  }
+</style>
 
 <!-- FOOTER -->
 <footer>
