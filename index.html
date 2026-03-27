@@ -355,7 +355,7 @@
   <img src="images/logo.png" alt="Logo" class="hero-logo">
   <h1>TODAY<br><span>EDUCATION</span><br>CENTER</h1>
   <p class="hero-sub">Zamonaviy ta'lim, global imkoniyatlar. O'quvchilarimiz bugungi bilim orqali ertangi dunyoni qurayapti.</p>
-  <p class="hero-since">⭐ 1 Dekabr 2017 — Toshkent, O'zbekiston</p>
+  <p class="hero-since">⭐ 1 Dekabr 2017 — Baliqchi tumani, Andijon viloyati</p>
   <div class="hero-cta">
     <a href="#about" class="btn-primary">Batafsil bilish</a>
     <a href="#gallery" class="btn-outline">Galereya</a>
@@ -365,16 +365,12 @@
 <!-- STATS -->
 <div class="stats-strip">
   <div class="stat-item reveal">
-    <div class="stat-num">5000+</div>
-    <div class="stat-label">O'quvchi bitirgan</div>
+    <div class="stat-num">5,000+</div>
+    <div class="stat-label">O'quvchilar O'quv markazda o'qigan</div>
   </div>
   <div class="stat-item reveal">
     <div class="stat-num">500+</div>
-    <div class="stat-label">Xorijiy universitete kirgan</div>
-  </div>
-  <div class="stat-item reveal">
-    <div class="stat-num">12</div>
-    <div class="stat-label">Mamlakatlar</div>
+    <div class="stat-label">O'quvchilarimiz chet davlatlardagi nufuzli universitetlarga o'qishga kirishgan</div>
   </div>
   <div class="stat-item reveal">
     <div class="stat-num">7+</div>
@@ -498,7 +494,7 @@
   <div class="footer-line"></div>
   <p>
     <strong style="color:#fff; font-family:'Bebas Neue'; font-size:20px; letter-spacing:2px;">TODAY EDUCATION CENTER</strong><br>
-    Toshkent, O'zbekiston &nbsp;|&nbsp; 2017 yildan buyon
+    Baliqchi tumani, Andijon viloyati, O'zbekiston &nbsp;|&nbsp; 2017 yildan buyon
   </p>
   <p class="footer-copy">© 2024 Today Education Center. Barcha huquqlar himoyalangan.</p>
 </footer>
@@ -534,8 +530,20 @@
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const nums = document.querySelectorAll('.stat-num');
-        const data = [{val:5000,s:'+'},{val:500,s:'+'},{val:12,s:''},{val:7,s:'+'}];
-        nums.forEach((el, i) => animateCounter(el, data[i].val, data[i].s));
+        const data = [{val:5000,s:'+',comma:true},{val:500,s:'+',comma:false},{val:7,s:'+',comma:false}];
+        nums.forEach((el, i) => {
+          const d = data[i];
+          let start2 = 0;
+          const dur = 1800;
+          const step2 = ts => {
+            if (!start2) start2 = ts;
+            const prog = Math.min((ts - start2) / dur, 1);
+            const val = Math.floor(prog * d.val);
+            el.textContent = (d.comma ? val.toLocaleString() : val) + d.s;
+            if (prog < 1) requestAnimationFrame(step2);
+          };
+          requestAnimationFrame(step2);
+        });
         statsObs.disconnect();
       }
     });
