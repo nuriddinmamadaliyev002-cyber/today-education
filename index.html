@@ -35,7 +35,7 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 16px 48px;
-    background: rgba(5,5,5,0.85);
+    background: rgba(5,5,5,0.92);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(204,0,204,0.2);
   }
@@ -43,8 +43,37 @@
   .nav-logo img { height: 40px; mix-blend-mode: screen; }
   .nav-logo span { font-family: 'Bebas Neue'; font-size: 22px; letter-spacing: 2px; color: var(--purple-light); }
   .nav-links { display: flex; gap: 32px; }
-  .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; letter-spacing: 0.5px; transition: color .2s; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 15px; letter-spacing: 0.5px; transition: color .2s; }
   .nav-links a:hover { color: var(--purple-light); }
+
+  /* Hamburger */
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; padding: 4px; background: none; border: none;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: var(--text); border-radius: 2px;
+    transition: all .3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Mobile drawer */
+  .mobile-menu {
+    display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(5,5,5,0.97); backdrop-filter: blur(16px);
+    z-index: 99; flex-direction: column; align-items: center; justify-content: center;
+    gap: 40px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: var(--text); text-decoration: none;
+    font-family: 'Bebas Neue'; font-size: 40px; letter-spacing: 3px;
+    transition: color .2s;
+  }
+  .mobile-menu a:hover { color: var(--purple-light); }
 
   /* ── HERO ── */
   .hero {
@@ -295,7 +324,7 @@
     padding: 60px 48px;
     text-align: center;
   }
-  footer img { height: 56px; margin-bottom: 20px; filter: drop-shadow(0 0 16px var(--purple-glow)); mix-blend-mode: screen; }
+  footer img { height: 80px; margin-bottom: 20px; filter: drop-shadow(0 0 16px var(--purple-glow)) brightness(1.1); mix-blend-mode: lighten; background: transparent; }
   footer p { color: var(--muted); font-size: 14px; line-height: 1.8; }
   footer .footer-copy { margin-top: 32px; font-size: 12px; color: rgba(255,255,255,0.2); }
   .footer-line {
@@ -319,6 +348,7 @@
   @media (max-width: 900px) {
     nav { padding: 14px 24px; }
     .nav-links { display: none; }
+    .hamburger { display: flex; }
     section { padding: 70px 24px; }
     .about-grid, .korea-inner { grid-template-columns: 1fr; gap: 48px; }
     .about-img-badge { bottom: 10px; right: 10px; }
@@ -328,9 +358,37 @@
       grid-template-rows: auto;
     }
     .gal-1,.gal-2,.gal-3,.gal-4,.gal-5,.gal-6 {
-      grid-column: auto; grid-row: auto;
+      grid-column: auto; grid-row: auto; height: 180px;
     }
     .stats-strip { padding: 48px 24px; }
+    .stat-num { font-size: 52px; }
+    .stat-label { font-size: 13px; }
+    .event-card { grid-template-columns: 1fr !important; }
+
+    /* Hero font mobile */
+    .hero h1 { font-size: 56px; }
+    .hero-sub { font-size: 15px; }
+    .hero-since { font-size: 12px; }
+    .section-title { font-size: 36px; }
+  }
+
+  /* Tablet */
+  @media (min-width: 901px) and (max-width: 1200px) {
+    nav { padding: 16px 32px; }
+    .nav-links a { font-size: 14px; gap: 24px; }
+    .nav-links { gap: 24px; }
+    .hero h1 { font-size: 80px; }
+    .stat-num { font-size: 60px; }
+    .section-title { font-size: 48px; }
+  }
+
+  /* Desktop */
+  @media (min-width: 1201px) {
+    .hero h1 { font-size: 110px; }
+    .hero-sub { font-size: 18px; }
+    .stat-num { font-size: 72px; }
+    .section-title { font-size: 60px; }
+    .nav-links a { font-size: 15px; }
   }
 </style>
 </head>
@@ -349,7 +407,19 @@
     <a href="#gallery">Galereya</a>
     <a href="#events">Faoliyat</a>
   </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile Menu Drawer -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">Biz haqimizda</a>
+  <a href="#countries" onclick="closeMenu()">Davlatlar</a>
+  <a href="#programs" onclick="closeMenu()">Dasturlar</a>
+  <a href="#gallery" onclick="closeMenu()">Galereya</a>
+  <a href="#events" onclick="closeMenu()">Faoliyat</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -567,7 +637,7 @@
     <strong style="color:#fff; font-family:'Bebas Neue'; font-size:20px; letter-spacing:2px;">TODAY EDUCATION CENTER</strong><br>
     Baliqchi tumani, Andijon viloyati, O'zbekiston &nbsp;|&nbsp; 2017 yildan buyon
   </p>
-  <p class="footer-copy">© 2024 Today Education Center. Barcha huquqlar himoyalangan.</p>
+  <p class="footer-copy">© 2026 Today Education Center. Barcha huquqlar himoyalangan.</p>
 </footer>
 
 <script>
@@ -583,7 +653,22 @@
   }, { threshold: 0.12 });
   reveals.forEach(el => io.observe(el));
 
-  // Counter animation
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
   function animateCounter(el, target, suffix='') {
     let start = 0;
     const duration = 1800;
